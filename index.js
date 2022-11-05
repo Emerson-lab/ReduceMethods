@@ -49,37 +49,59 @@
 // console.log(namesCount)
 
 // o que eu tenho?
-const pessoas = [
-  { nome: 'Daniel', idade: 28 },
-  { nome: 'Maria', idade: 29 },
-  { nome: 'Marta', idade: 29 }
-]
+// const pessoas = [
+//   { nome: 'Daniel', idade: 28 },
+//   { nome: 'Maria', idade: 29 },
+//   { nome: 'Marta', idade: 29 }
+// ]
 
 //o que espero?
 
 //{'28': ['Daniel'], '29': ['Maria', 'Marta']}
 
-const porIdade = pessoas.reduce((pessoasIdade, pessoaAtual) => {
-  //assim
+// const porIdade = pessoas.reduce((pessoasIdade, pessoaAtual) => {
+//   //assim
 
-  // console.log(pessoasIdade[pessoaAtual.idade])
+//   // console.log(pessoasIdade[pessoaAtual.idade])
 
-  if (pessoasIdade[pessoaAtual.idade]) {
-    pessoasIdade[pessoaAtual.idade].push(pessoaAtual.nome)
-    console.log('if[pessoasIdade[pessoaAtual.idade]]',pessoasIdade[pessoaAtual.idade])
-   } 
-  else {
-    pessoasIdade[pessoaAtual.idade] = []
-    pessoasIdade[pessoaAtual.idade].push(pessoaAtual.nome)
-    console.log('else[pessoasIdade[pessoaAtual.idade]]',pessoasIdade[pessoaAtual.idade])
+//   if (pessoasIdade[pessoaAtual.idade]) {
+//     pessoasIdade[pessoaAtual.idade].push(pessoaAtual.nome)
+//     console.log('if[pessoasIdade[pessoaAtual.idade]]',pessoasIdade[pessoaAtual.idade])
+//    } 
+//   else {
+//     pessoasIdade[pessoaAtual.idade] = []
+//     pessoasIdade[pessoaAtual.idade].push(pessoaAtual.nome)
+//     console.log('else[pessoasIdade[pessoaAtual.idade]]',pessoasIdade[pessoaAtual.idade])
+//   }
+
+//   //ou
+
+//   // pessoasIdade[pessoaAtual.idade] = pessoasIdade[pessoaAtual.idade] || []
+//   // pessoasIdade[pessoaAtual.idade].push(pessoaAtual.nome)
+
+//   return pessoasIdade
+// }, {})
+
+// console.log(porIdade)
+
+//obter o dobro dos numeros positivos
+
+// o que tenho? 
+const numeros = [-10, 0, 2, 4];
+
+// o que espero?
+// [4, 8]
+
+//metodo noob
+// const numerosDobraods = numeros.filter(n => n > 0).map(n => n * 2)
+
+// metodo mestre
+
+const numerosDobraods = numeros.reduce( (totalValor, currentValue) => {
+  if(currentValue > 0){
+    totalValor.push(currentValue * 2) 
   }
+  return totalValor 
+}, [])
 
-  //ou
-
-  // pessoasIdade[pessoaAtual.idade] = pessoasIdade[pessoaAtual.idade] || []
-  // pessoasIdade[pessoaAtual.idade].push(pessoaAtual.nome)
-
-  return pessoasIdade
-}, {})
-
-console.log(porIdade)
+console.log(numerosDobraods)
